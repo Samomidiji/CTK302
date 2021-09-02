@@ -12,7 +12,7 @@ function setup() {
 
 function draw() {
   background(222);
-  image(bulbs, width/2, height/2, 547/2, 364/2);
-  image(lights, width/2, height/2 - 150, 600/2, 400/2);
-  image(flower, width/2 + 150, height/2, 306/2, 459/2);
+  image(bulbs, width/2 - 198, height/2, 547/2, 364/2);
+  image(lights, width/2 - 210, height/2 - 191, 600/2, 400/2);
+  image(flower, width/2 + 15, height/2 - 22, 306/2, 459/2);
 }
