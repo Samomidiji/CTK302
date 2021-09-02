@@ -1,14 +1,23 @@
 let font1;
+let font2;
+let font3;
 
 function setup() {
   createCanvas(500, 500);
-  font1 = loadFont("assets/Jengotan.ttf");
+  font1 = loadFont("assets/Boank.ttf");
+  font2 = loadFont("assets/Jengotan.ttf");
+  font3 = loadFont("assets/TheFrankline.ttf");
+  textAlign (CENTER);
 }
 
 function draw() {
-  background('yellow');
-  textFont(font1);
-  textSize(24);
-  text("hello world", 100,100);
+  background('white');
+  textFont(font2);
+  textSize(40);
+  text("This is a Font Test", width/2 ,100);
+
+  textFont(font3);
+  textSize(30);
+  text("I can use multiple fonts", width/2 ,150);
 
 }
