@@ -10,11 +10,15 @@ function setup() {
   sound2 = loadSound("assest/SoftAbstraction.mp3");
   sound3 = loadSound("assest/UpbeatMusic.mp3");
   textAlign(CENTER);
+  rectMode(CENTER);
+  noStroke();
 }
 
 function draw() {
+  fill(255);
+  rect(width/2, height/2, 120,50);
+  fill(0);
   text("Click her to play", width/2, height/2);
-
 }
 
 function mousePressed(){
