@@ -2,31 +2,30 @@ let sound1;
 let sound2;
 let sound3;
 
-
-function setup() {
-  createCanvas(500, 500);
-  background(20,233,20);
+function preload() {
   sound1 = loadSound("assest/ForKitchen.mp3");
   sound2 = loadSound("assest/SoftAbstraction.mp3");
   sound3 = loadSound("assest/UpbeatMusic.mp3");
-  textAlign(CENTER);
-  rectMode(CENTER);
-  noStroke();
+}
+
+function setup() {
+  sound3.loop();
 }
 
 function draw() {
-  fill(255);
-  rect(width/2, height/2, 120,50);
-  fill(0);
-  text("Click her to play", width/2, height/2);
+  createCanvas(500, 500);
+  background(20, 233, 20);
 }
 
-function mousePressed(){
-  if (sound1.isPlaying()){
-    background(20,233,20);
-    sound1.stop();
+function mouseReleased() {
+  if (sound3.isPlaying()) {
+    sound3.pause();
   } else {
-    background(255,54,20);
-    sound1.play();
+    sound3.loop();
   }
+}
+
+// add these to programs that use sound, at the bottom
+function touchStarted() {
+  getAudioContext().resume();
 }
