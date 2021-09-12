@@ -17,8 +17,10 @@ function setup() {
   //sound1.loop();
   //sound2.loop();
   textSize(20);
+  textAlign(CENTER);
   textFont(font1);
-  text("Click to reveal", width/2, height/2);
+  text("Click to reveal \nTotal time taken to complete this project \
+  \nwas about 50 hours", width/2, height/2);
 }
 
 
@@ -601,7 +603,7 @@ function mouseReleased() {
     textFont(font1);
     textSize(20);
     text("Nature shrinks as population increases, Technology advances, \
-    \nbuildings were erected and noise polution skyrocketed.", 50, 850);
+    \nbuildings were erected and noise polution skyrocketed.", width/2, 850);
 
   } else {
     // when the mouse isn't pressed!
@@ -1031,7 +1033,7 @@ function mouseReleased() {
     textSize(20);
     text("The World as it was, full of nature, with the beauty of the sun,\
   \nthe clearest of skies and the happiest of species. \nThen\
- population increased. Click to see it's effect on nature", 50, 850);
+ population increased. Click to see it's effect on nature", width/2, 850);
 
     //fill(255);
     //text(mouseX + " , " + mouseY, 10, 390);
