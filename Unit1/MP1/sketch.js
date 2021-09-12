@@ -1,23 +1,35 @@
 let font1;
-let font2;
-let font3;
+let sound1;
+let sound2;
+
+
+function preload() {
+  sound1 = loadSound("sounds/nature.mp3");
+  sound2 = loadSound("sounds/busycity.wav");
+}
 
 function setup() {
-  createCanvas(1500, 800);
+  createCanvas(1500, 1000);
   //rectMode(CENTER);
   //ellipseMode(CENTER);
   noStroke();
-  font1 = loadFont("fonts/Boank.ttf");
-  font2 = loadFont("fonts/Jengotan.ttf");
-  font3 = loadFont("fonts/TheFrankline.ttf");
+  font1 = loadFont("fonts/Mont.otf");
+  //sound1.loop();
+  //sound2.loop();
+  textSize(20);
+  textFont(font1);
+  text("Click to reveal", width/2, height/2);
 }
 
 
+function mouseReleased() {
 
-function draw() {
-
-  if (mouseIsPressed) {
+  if (sound1.isPlaying()) {
     // stuff that shows when the mouse is pressed
+    sound1.stop();
+    sound2.loop();
+
+
     background(12, 13, 61);
     noStroke();
 
@@ -94,7 +106,7 @@ function draw() {
     pop();
 
 
-    //sun by monicawen
+    //moon by sam
     fill(255, 249, 230);
     stroke(255);
     push();
@@ -114,11 +126,161 @@ function draw() {
 
 
     noStroke();
+
+    //house2
+    fill(0, 61, 138);
+    rect(300, 440, 400, 250);
+    fill(0, 61, 138);
+    rect(240, 490, 60, 200);
+    fill(0, 61, 138);
+    rect(600, 360, 40, 80);
+    fill(0, 36, 82);
+    rect(590, 340, 60, 30);
+
+    //window2-1
+    fill(255, 233, 171);
+    rect(350, 470, 100, 50);
+    fill(0, 103, 171);
+    rect(350, 470, 100, 5);
+
+    //window2-3
+    push();
+    translate(105, 0)
+    fill(255, 233, 171);
+    rect(350, 470, 100, 50);
+    fill(0, 103, 171);
+    rect(350, 470, 100, 5);
+    pop();
+
+    //window2-3
+    push();
+    translate(210, 0)
+    fill(255, 233, 171);
+    rect(350, 470, 100, 50);
+    fill(0, 103, 171);
+    rect(350, 470, 100, 5);
+    pop();
+
+
+    //house3
+    fill(80, 0, 97);
+    rect(1020, 390, 300, 300);
+    fill(59, 0, 71);
+    quad(1080, 320, 1260, 320, 1320, 390, 1020, 390);
+
+    //window3-1
+    fill(255, 233, 171);
+    rect(1056, 420, 40, 60);
+    fill(69, 0, 84);
+    rect(1056, 420, 40, 5);
+
+    //window3-2
+    push();
+    translate(60, 0)
+    fill(255, 233, 171);
+    rect(1056, 420, 40, 60);
+    fill(69, 0, 84);
+    rect(1056, 420, 40, 5);
+    pop();
+
+    //window3-3
+    push();
+    translate(120, 0)
+    fill(255, 233, 171);
+    rect(1056, 420, 40, 60);
+    fill(69, 0, 84);
+    rect(1056, 420, 40, 5);
+    pop();
+
+    //window3-4
+    push();
+    translate(180, 0)
+    fill(255, 233, 171);
+    rect(1056, 420, 40, 60);
+    fill(69, 0, 84);
+    rect(1056, 420, 40, 5);
+    pop();
+
+    // row 2
+    push();
+    translate(0, 90);
+    //window3-1
+    fill(255, 233, 171);
+    rect(1056, 420, 40, 60);
+    fill(69, 0, 84);
+    rect(1056, 420, 40, 5);
+
+    //window3-2
+    push();
+    translate(60, 0)
+    fill(255, 233, 171);
+    rect(1056, 420, 40, 60);
+    fill(69, 0, 84);
+    rect(1056, 420, 40, 5);
+    pop();
+
+    //window3-3
+    push();
+    translate(120, 0)
+    fill(255, 233, 171);
+    rect(1056, 420, 40, 60);
+    fill(69, 0, 84);
+    rect(1056, 420, 40, 5);
+    pop();
+
+    //window3-4
+    push();
+    translate(180, 0)
+    fill(255, 233, 171);
+    rect(1056, 420, 40, 60);
+    fill(69, 0, 84);
+    rect(1056, 420, 40, 5);
+    pop();
+    pop();
+
+    // row 3
+    push();
+    translate(0, 180);
+    //window3-1
+    fill(255, 233, 171);
+    rect(1056, 420, 40, 60);
+    fill(69, 0, 84);
+    rect(1056, 420, 40, 5);
+
+    //window3-2
+    push();
+    translate(60, 0)
+    fill(255, 233, 171);
+    rect(1056, 420, 40, 60);
+    fill(69, 0, 84);
+    rect(1056, 420, 40, 5);
+    pop();
+
+    //window3-3
+    push();
+    translate(120, 0)
+    fill(255, 233, 171);
+    rect(1056, 420, 40, 60);
+    fill(69, 0, 84);
+    rect(1056, 420, 40, 5);
+    pop();
+
+    //window3-4
+    push();
+    translate(180, 0)
+    fill(255, 233, 171);
+    rect(1056, 420, 40, 60);
+    fill(69, 0, 84);
+    rect(1056, 420, 40, 5);
+    pop();
+    pop();
+
+
     push();
     translate(450, 230);
     //house1
-    fill(38, 10, 77),
-      rect(300, 0, 220, 460);
+    fill(38, 10, 77);
+    rect(300, 0, 220, 460);
 
     //windows roll 1 for H1
     push();
@@ -406,7 +568,7 @@ function draw() {
     //translate(400, 350);
     //Bench
     //fill(57, 7, 32);
-  //  rect(160, 270, 5, 70);
+    //  rect(160, 270, 5, 70);
     //rect(250, 270, 5, 70);
 
     //fill(185, 109, 20);
@@ -432,9 +594,21 @@ function draw() {
     //rect(150, 314, 115, 5);
     //pop();
 
+    //TextSpaceß
+    fill(225);
+    rect(0, 800, 1500, 200);
+    fill(0);
+    textFont(font1);
+    textSize(20);
+    text("Nature shrinks as population increases, Technology advances, \
+    \nbuildings were erected and noise polution skyrocketed.", 50, 850);
 
   } else {
     // when the mouse isn't pressed!
+    sound2.stop();
+    sound1.loop();
+
+
     background(190, 240, 255);
     noStroke();
 
@@ -849,12 +1023,23 @@ function draw() {
     rect(150, 314, 115, 5);
     pop();
 
+    //TextSpaceß
+    fill(225);
+    rect(0, 800, 1500, 200);
+    fill(0);
+    textFont(font1);
+    textSize(20);
+    text("The World as it was, full of nature, with the beauty of the sun,\
+  \nthe clearest of skies and the happiest of species. \nThen\
+ population increased. Click to see it's effect on nature", 50, 850);
 
     //fill(255);
     //text(mouseX + " , " + mouseY, 10, 390);
 
 
   }
+
+
 
 
 
@@ -867,11 +1052,6 @@ function draw() {
 
 }
 
-
-
-
-
-
-// record the mouse location in console when clicked
-//function mouseReleased() {
-//print(mouseX + ", " + mouseY);
+//function touchStarted() {
+  //getAudioContext().resume();
+//}
