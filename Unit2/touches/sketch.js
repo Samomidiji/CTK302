@@ -36,7 +36,7 @@ function draw() {
       textFont(font);
       textSize(24);
       text("Hi, it's just you here", width / 2, 100);
-      image(finger1, width / 2, 500, 500, 500)
+      image(finger1, width / 2, height/2, 500, 500)
       break;
 
     case 2:
@@ -45,7 +45,7 @@ function draw() {
       textFont(font);
       textSize(24);
       text("Oh, it two of you now!", width / 2, 100);
-      image(finger2, width / 2, 500, 500, 500)
+      image(finger2, width / 2, height/2, 500, 500)
       break;
 
     case 3:
@@ -54,7 +54,7 @@ function draw() {
       textFont(font);
       textSize(24);
       text("Three of you? You rock!", width / 2, 100);
-      image(finger3, width / 2, 500, 500, 500)
+      image(finger3, width / 2, height/2, 500, 500)
       break;
 
   }
