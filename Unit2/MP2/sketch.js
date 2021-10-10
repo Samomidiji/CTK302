@@ -69,7 +69,7 @@ function draw() {
       fill('white')
       textSize(50);
       text('Baby Steps? Louder!!!', width / 2, 180);
-      if (vol > 0.25) {
+      if (vol > 0.5) {
         state = 2}
       break;
 
@@ -85,7 +85,7 @@ function draw() {
       fill('white')
       textSize(50);
       text('Now we are moving!', width / 2, 180);
-      if (vol > 0.5) {
+      if (vol > 0.8) {
         state = 3
         state++}
       break;
@@ -98,7 +98,7 @@ function draw() {
       fill('white')
       textSize(50);
       text('Okay, I see you!', width / 2, 180);
-      if (vol >0.8) {
+      if (vol > 1.2) {
         state = 4}
       break;
 
