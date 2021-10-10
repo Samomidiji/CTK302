@@ -29,7 +29,7 @@ function draw() {
   racecar();
   textSize(20);
   fill(255);
-  text(mouseX + " , " + mouseY, 50, 50);
+  //text(mouseX + " , " + mouseY, 50, 50);
   textFont(font);
   fill('white')
   textSize(50);
