@@ -16,6 +16,7 @@ function setup() {
 }
 
 function draw() {
+
   clear();
   numberOfTouches = touches.length;
   //text(numberOfTouches + ' touches', 5, 10);
@@ -24,7 +25,7 @@ function draw() {
     case 0:
       background('white');
       fill('black')
-      font(font);
+      textFont(font);
       textSize(24);
       text("no one is touching the screen", width / 2, 100);
       break;
@@ -32,7 +33,7 @@ function draw() {
     case 1:
       background('white');
       fill('black')
-      font(font);
+      textFont(font);
       textSize(24);
       text("Hi, it's just you here", width / 2, 100);
       image(finger1, width / 2, 500, 500, 500)
@@ -41,7 +42,7 @@ function draw() {
     case 2:
       background('white');
       fill('black')
-      font(font);
+      textFont(font);
       textSize(24);
       text("Oh, it two of you now!", width / 2, 100);
       image(finger2, width / 2, 500, 500, 500)
@@ -50,7 +51,7 @@ function draw() {
     case 3:
       background('white');
       fill('black')
-      font(font);
+      textFont(font);
       textSize(24);
       text("Three of you? You rock!", width / 2, 100);
       image(finger3, width / 2, 500, 500, 500)
