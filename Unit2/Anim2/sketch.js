@@ -1,49 +1,69 @@
 let x = 0;
+let offset = 0;
+let strum = 1;
+let ship;
+let flip;
+let changeDirection;
 
 function setup() {
-  createCanvas(800, 800);
+  createCanvas(800, 400);
+  ship = loadImage("assest/ship.svg");
+  changeDirection = false
+  flip = false
 }
+
+//flip = !flip
 
 function draw() {
-  background(220);
-
-  push();
-  translate(x,0);
-  avatar();
-  pop();
-
-  x = x + 3;
-  if (x >= width){
-    x = -300;
+  background('transparent');
+  noStroke();
+  fill(3, 207, 252);
+  beginShape();
+  vertex(0, height);
+  for (let x = 0; x < width; x++) {
+    //var angle = map(x, 0, width, 0, TWO_PI);
+    let angle = offset + x * 0.01;
+    // map x between 0 and width to 0 and Two Pi
+    let y = map(sin(angle), -strum, strum, 340, 350);
+    vertex(x, y);
   }
+  vertex(width, height);
+  endShape();
+  offset += 0.1;
+
+
+
+  if (x >= width) {
+    changeDirection = true;
+    flip = true;
+  } else {
+    if (x <= 0) {
+      changeDirection = false;
+      flip = false;
+    }
+  }
+
+  if (x >=0 && changeDirection == false && flip == false) {
+    push();
+    translate(x, 0);
+    avatar();
+    pop();
+    x = x + 3;
+  } else {
+    if (changeDirection == true && flip == true) {
+      push();
+      scale(-1, 1)
+      translate(-x, 0);
+      avatar();
+      pop();
+      x = x - 3;
+    }
+  }
+
+
 
 }
 
-function avatar (){
-  // rain man body head when not pressed
- fill('black')
- ellipse(410, 170, 80, 80);
-
- fill('white');
- arc(410, 180, 40, 40, 0, PI + QUARTER_PI, CHORD);
-
-
-
- // rain man body
- fill('black');
- rect(390, 200, 40, 140);
- rect(395, 230, 10, 140);
- rect(413, 230, 10, 140);
-
- // rain man arms
- fill('black');
- line(500, 200, 400, 225);
- fill('black');
- line(300, 200, 400, 225);
-
- fill('white')
- ellipse(395, 150, 10, 10);
-
- fill('white')
- ellipse(425, 150, 10, 10);
+function avatar() {
+  image(ship, 0, 70, 200, 300);
 }
