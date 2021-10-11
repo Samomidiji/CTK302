@@ -5,7 +5,7 @@ let font;
 var mic;
 var vol = 0;
 var approachingVol = 0;
-let theLoudestItGets = 1.5;
+let theLoudestItGets = 1;
 var ease = 0.01;
 let x;
 
@@ -20,7 +20,7 @@ function setup() {
 }
 
 function draw() {
-  vol = mic.getLevel();
+  vol = mic.getLevel().toFixed(1);
   approachingVol += (vol - approachingVol) * ease;
   x = map(approachingVol, 0, theLoudestItGets, 0, width);
 
@@ -69,7 +69,7 @@ function draw() {
       fill('white')
       textSize(50);
       text('Baby Steps? Louder!!!', width / 2, 180);
-      if (vol > 0.5) {
+      if (vol > 0.35) {
         state = 2}
       break;
 
@@ -85,7 +85,7 @@ function draw() {
       fill('white')
       textSize(50);
       text('Now we are moving!', width / 2, 180);
-      if (vol > 0.8) {
+      if (vol > 0.7) {
         state = 3
         state++}
       break;
@@ -98,7 +98,7 @@ function draw() {
       fill('white')
       textSize(50);
       text('Okay, I see you!', width / 2, 180);
-      if (vol > 1.2) {
+      if (vol > 1) {
         state = 4}
       break;
 
