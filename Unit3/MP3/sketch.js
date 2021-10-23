@@ -214,6 +214,7 @@ function checkForKey() {
   }
 }
 
+//Declare touch Functions
 function touchMoved(){
   valueX = canPos.x -= 5
   valueY = canPos.x += 5
