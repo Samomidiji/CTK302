@@ -106,7 +106,7 @@ function draw() {
       image(fail, width / 2, height / 2 - 150, 94.4 * 3, 44.9 * 3);
       textFont(font);
       textSize(18);
-      text('You have brougt upon us the doom of trash. Play again to reedem yourself!', width / 2, height / 2 + 50, 300, 200);
+      text('You have brougt upon us the doom of trash. Play again to redeem yourself!', width / 2, height / 2 + 50, 300, 200);
       image(tryagain, width / 2, height / 2 + 70, 74.3 * 2, 21.1 * 2);
       break;
   }
