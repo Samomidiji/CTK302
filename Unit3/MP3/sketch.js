@@ -199,6 +199,7 @@ function game() {
   //fill("green");
   image(trashCan, canPos.x, canPos.y, 243 / 3, 356 / 3);
   checkForKey();
+  touchMoved()
 }
 
 //Declare Key Functions
@@ -211,6 +212,11 @@ function checkForKey() {
     canPos.x += 5;
     if (canPos.x >= width) canPos.x = width;
   }
+}
+
+function touchMoved(){
+  valueX = canPos.x -= 5
+  valueY = canPos.x += 5
 }
 
 //Declaring the Bottle class
