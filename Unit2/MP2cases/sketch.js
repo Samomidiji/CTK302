@@ -51,23 +51,12 @@ function draw() {
       textFont(font);
       fill('white')
       textSize(50);
-      s = 'Scream to race';
-      if (approachingVol > 0.05 ){
-        s = 'Baby Steps? Louder!!!';
-      } if (approachingVol > 0.15) {
-        s = 'Now we are moving!';
-      } if (approachingVol > 0.35) {
-        s = 'Okay, I see you!';
-      } if (approachingVol > 0.5) {
-        s = 'You are on fire!!!'
-      }
-
-      text(s, width / 2, 180);
-      // if (vol > 0.1 ) {
-      //   state = 1}
+      text('Scream to race', width / 2, 180);
+      if (vol > 0.1 ) {
+        state = 1}
 
       break;
-/*
+
     case 1:
       background('transparent');
       bg();
@@ -128,8 +117,6 @@ function draw() {
       if (vol < 1) {
         state = 0}
       break;
-
-      */
   }
 
 }
