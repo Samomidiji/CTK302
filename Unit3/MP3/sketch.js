@@ -113,6 +113,13 @@ function draw() {
 
 }
 
+// Declaring function touchStarted
+function touchStarted(){
+  canPos.x = mouseX;
+  return false;
+}
+
+
 // Setting for clicks
 function mouseReleased() {
   switch (state) {
@@ -199,7 +206,12 @@ function game() {
   //fill("green");
   image(trashCan, canPos.x, canPos.y, 243 / 3, 356 / 3);
   checkForKey();
-  touchMoved()
+  if (mouseIsPressed){
+    canPos.x = mouseX;
+    if (canPos.x <= 0) canPos.x = 0;
+    if (canPos.x >= width) canPos.x = width;
+  }
+  // touchMoved()
 }
 
 //Declare Key Functions
@@ -214,11 +226,11 @@ function checkForKey() {
   }
 }
 
-//Declare touch Functions
-function touchMoved(){
-  valueX = canPos.x -= 5
-  valueY = canPos.x += 5
-}
+// //Declare touch Functions
+// function touchMoved(){
+//   valueX = canPos.x -= 5
+//   valueY = canPos.x += 5
+// }
 
 //Declaring the Bottle class
 class Bottle {
