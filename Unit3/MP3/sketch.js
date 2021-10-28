@@ -2,7 +2,7 @@
 let bottles = [];
 let bottle;
 let bottleTaken = 0;
-let maxBottle = 7;
+let maxBottle = 8;
 let cans = [];
 let can;
 let canTaken = 0;
