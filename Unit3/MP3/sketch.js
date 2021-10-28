@@ -12,10 +12,17 @@ let plastic;
 let plasticTaken = 0;
 let maxPlastic = 7;
 
+//Declaring sounds
+let startSound;
+let gameSound;
+let winSound;
+let failSound;
+let trashSound;
+
 //Declaring the trash can
 let trashCan;
 
-//Declaring the background and other asset
+//Declaring the background and other image and font asset
 let bg;
 let name;
 let font;
@@ -28,6 +35,28 @@ let fail;
 //Declaring state and timer
 let state = 0;
 let timer = 0;
+
+function preload() {
+  //Adding sounds
+  startSound = loadSound('assets/startgame.mp3');
+  gameSound = loadSound('assets/game.wav');
+  winSound = loadSound('assets/wingame.wav');
+  failSound = loadSound('assets/failgame.wav');
+  trashSound = loadSound('assets/trash.mp3');
+
+  startSound.loop();
+  startSound.stop();
+  gameSound.loop();
+  gameSound.stop();
+  winSound.loop();
+  winSound.stop();
+  failSound.loop();
+  failSound.stop();
+  trashSound.loop();
+  trashSound.stop();
+
+}
+
 
 function setup() {
   createCanvas(400, 700);
@@ -42,7 +71,7 @@ function setup() {
   can = loadImage('assets/can.png');
   plastic = loadImage('assets/plastic.png');
 
-  // Adding background and other assets
+  // Adding background, images and font assets
   bg = loadImage('assets/background.png');
   name = loadImage('assets/name.png');
   tryagain = loadImage('assets/tryagain.png');
@@ -78,7 +107,13 @@ function draw() {
   background(220);
 
   switch (state) {
-    case 0: // Home/onboarding
+
+    case 0: // To play start game sound
+      startSound.play();
+      state = 1
+      break;
+
+    case 1: // Home/onboarding
       image(bg, width / 2, height / 2, 400, 700);
       image(name, width / 2, height / 2 - 150, 94.4 * 3, 44.9 * 3);
       textFont(font);
@@ -88,11 +123,22 @@ function draw() {
       // text(mouseX + " , " + mouseY, 350, 50);
       break;
 
-    case 1: // Play game
+    case 2: // To play game sound
+      gameSound.play();
+      gameSound.setVolume(0.3);
+      state = 3
+      break;
+
+    case 3: // Play game
       game();
       break;
 
-    case 2: // Win game
+    case 4: // To play win game sound
+      winSound.play();
+      state = 5
+      break;
+
+    case 5: // Win game
       image(bg, width / 2, height / 2, 400, 700);
       image(save, width / 2, height / 2 - 150, 94.4 * 3, 44.9 * 3);
       textFont(font);
@@ -101,7 +147,12 @@ function draw() {
       image(tryagain, width / 2, height / 2 + 70, 74.3 * 2, 21.1 * 2);
       break;
 
-    case 3: // lose game
+    case 6: // To play game sound
+      failSound.play();
+      state = 7
+      break;
+
+    case 7: // lose game
       image(bg, width / 2, height / 2, 400, 700);
       image(fail, width / 2, height / 2 - 150, 94.4 * 3, 44.9 * 3);
       textFont(font);
@@ -114,7 +165,7 @@ function draw() {
 }
 
 // Declaring function touchStarted
-function touchStarted(){
+function touchStarted() {
   canPos.x = mouseX;
   return false;
 }
@@ -122,28 +173,32 @@ function touchStarted(){
 
 // Setting for clicks
 function mouseReleased() {
+
   switch (state) {
-    case 0:
-      if ((mouseX > 128) && (mouseX < 273) && (mouseY > 400) && (mouseY < 440)) {
-        state = 1;
-      }
-      break;
-
     case 1:
-
-      break;
-
-    case 2:
       if ((mouseX > 128) && (mouseX < 273) && (mouseY > 400) && (mouseY < 440)) {
-        state = 0;
-        resetGame();
+        state = 2;
+        startSound.stop();
       }
       break;
 
     case 3:
+
+      break;
+
+    case 5:
       if ((mouseX > 128) && (mouseX < 273) && (mouseY > 400) && (mouseY < 440)) {
         state = 0;
         resetGame();
+        winSound.stop();
+      }
+      break;
+
+    case 7:
+      if ((mouseX > 128) && (mouseX < 273) && (mouseY > 400) && (mouseY < 440)) {
+        state = 0;
+        resetGame();
+        failSound.stop();
       }
       break;
 
@@ -165,9 +220,8 @@ function game() {
     if (bottles[i].pos.dist(canPos) < 60) {
       bottles.splice(i, 1);
       bottleTaken++;
+      trashSound.play();
     }
-    // set game to fail when bottle hits the floor
-    // if (bottles[i].pos.y >= height) state = 3
   }
 
   //Displays cans falling
@@ -178,10 +232,8 @@ function game() {
     if (cans[j].pos.dist(canPos) < 60) {
       cans.splice(j, 1);
       canTaken++;
+      trashSound.play();
     }
-
-    // set game to fail when can hits the floor
-    // if (cans[j].pos.y >= height) state = 3
   }
 
   //Displays plastics falling
@@ -192,21 +244,19 @@ function game() {
     if (plastics[k].pos.dist(canPos) < 60) {
       plastics.splice(k, 1);
       plasticTaken++;
+      trashSound.play();
     }
-
-    // set game to fail when plastic hits the floor
-    // if (plastics[k].pos.y >= height) state = 3
   }
 
   if (bottles.length == 0 && cans.length == 0 && plastics.length == 0) {
-    state = 2;
+    state = 4;
   }
 
   //Trash Can - change to image
   //fill("green");
   image(trashCan, canPos.x, canPos.y, 243 / 3, 356 / 3);
   checkForKey();
-  if (mouseIsPressed){
+  if (mouseIsPressed) {
     canPos.x = mouseX;
     if (canPos.x <= 0) canPos.x = 0;
     if (canPos.x >= width) canPos.x = width;
@@ -251,7 +301,10 @@ class Bottle {
   //Move determin the direction and velocity
   move() {
     this.pos.add(this.vel);
-    if (this.pos.y >= height) state = 3;
+    if (this.pos.y >= height) {
+      state = 6;
+      gameSound.stop();
+    }
   }
 }
 
@@ -274,7 +327,10 @@ class Can {
   //Move determin the direction and velocity
   move() {
     this.pos.add(this.vel);
-    if (this.pos.y >= height) state = 3;
+    if (this.pos.y >= height) {
+      state = 6;
+      gameSound.stop();
+    }
   }
 }
 
@@ -297,7 +353,10 @@ class Plastic {
   //Move determin the direction and velocity
   move() {
     this.pos.add(this.vel);
-    if (this.pos.y >= height) state = 3;
+    if (this.pos.y >= height) {
+      state = 6;
+      gameSound.stop();
+    }
   }
 }
 
@@ -325,4 +384,9 @@ function resetGame() {
   for (let k = 0; k <= maxPlastic; k++) {
     plastics.push(new Plastic());
   }
+}
+
+//intialising sounds
+function touchStarted() {
+  getAudioContext().resume();
 }
