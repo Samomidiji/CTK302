@@ -1,46 +1,48 @@
-let cars = [];
+let emojis = [];
+let emj;
+let canon;
 
 function setup() {
   createCanvas(500, 500);
   noStroke();
 
-  //   for (let i = 0; i < 20; i++) {
-  //     cars.push(new Car());
-  //   }
+emj = loadImage('assets/emoji.png');
+canon = loadImage('assets/canon.png');
 }
 
 function draw() {
-  background("grey");
+  background(19, 168, 242);
+  emojis.push(new Emoji());
 
-  cars.push(new Car());
+  for (let i = 0; i < emojis.length; i++) {
+    emojis[i].display();
+    emojis[i].move();
 
-  for (let i = 0; i < cars.length; i++) {
-    cars[i].display();
-    cars[i].move();
-
-    if (cars[i].a <= 0) {
-      cars.splice(i, 2);
+    if (emojis[i].a <= 0) {
+      emojis.splice(i, 2);
     }
   }
+  image(canon, 0, height/2, 36.1 * 4, 29.4 * 4);
 }
 
-class Car {
+class Emoji {
   constructor() {
     // attributes
-    this.pos = createVector(width / 2, height - 80);
-    this.vel = createVector(random(-1, 3), random(-5, -6));
+    this.pos = createVector(115, 260);
+    this.vel = createVector(random(1, 5), random(-2, 1));
     this.a = random(200, 230);
     // this.col = color(random(255),random(255),random(255));
     this.r = random(255);
     this.g = random(255);
     this.b = random(255);
-    this.size = random(10,25)
+    this.size = random(10,40)
   }
 
   // methods
   display() {
-    fill(this.r, this.g, this.b, this.a);
-    ellipse(this.pos.x, this.pos.y, 1*this.size, 1*this.size);
+    // fill(this.r, this.g, this.b, this.a);
+    image(emj, this.pos.x, this.pos.y, 1*this.size, 1*this.size);
+
   }
   move() {
     this.pos.add(this.vel);
