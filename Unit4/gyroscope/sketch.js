@@ -140,6 +140,12 @@ function Car() {
   this.b = random(255);
   this.a = random(255);  // alpha opacity value for fill!
 
+  if (random(2) > 1){
+    this.image = image;
+  } else {
+    this.image = image;
+  }
+
 
   // methods
   this.display = function() {
