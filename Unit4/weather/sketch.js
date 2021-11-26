@@ -74,28 +74,28 @@ function draw() {
     case 1:
       // background(200);
 
-      image(loct, width / 2 - 65, height / 2 - 367, 240 / 20, 368 / 20);
+      image(loct, width / 2 - 65, height / 2 - 300, 240 / 20, 368 / 20);
       fill('White');
       textFont(fontB);
       textSize(30);
-      text(weather.name, width / 2, 145);
+      text(weather.name, width / 2, height / 2 - 290);
 
       textFont(font);
       textSize(80);
-      text(temp + "°F", width / 2, 250);
+      text(temp + "°F", width / 2, height / 2 - 190);
 
-      image(cloud, width / 2, height / 2 - 30, 683 / 1.5, 576 / 1.5);
+      image(cloud, width / 2, height / 2 + 30, 683 / 1.5, 576 / 1.5);
 
-      image(wind, width / 2 - 165, height / 2 + 233, 235 / 10, 235 / 10);
-      image(drop, width / 2 + 40, height / 2 + 233, 221 / 10, 217 / 10);
+      image(wind, width / 2 - 165, height / 2 + 273, 235 / 10, 235 / 10);
+      image(drop, width / 2 + 40, height / 2 + 273, 221 / 10, 217 / 10);
       textFont(font);
       textSize(20);
-      text("Windspeed: " + windspeed, width / 2 - 68, 740);
-      text("Humidity: " + humidity, width / 2 + 120, 740);
+      text("Windspeed: " + windspeed, width / 2 - 68, height / 2 + 280);
+      text("Humidity: " + humidity, width / 2 + 120, height / 2 + 280);
 
       textFont(fontB);
       textSize(20);
-      text("Description is " + desc, width / 2, 820);
+      text("Description is " + desc, width / 2, height / 2 + 340);
 
       for (let i = 0; i < dots.length; i++) {
         dots[i].display();
