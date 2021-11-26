@@ -62,7 +62,7 @@ function gotData(data) {
 
 
 function draw() {
-  image(bg, width / 2, height / 2, windowWidth, windowHeight);
+  image(bg, width / 2, height / 2, width, height);
 
   switch (myState) {
     case 0:
@@ -73,6 +73,10 @@ function draw() {
 
     case 1:
       // background(200);
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].display();
+        dots[i].move();
+      }
 
       image(loct, width / 2 - 65, height / 2 - 300, 240 / 20, 368 / 20);
       fill('White');
@@ -97,20 +101,9 @@ function draw() {
       textSize(20);
       text("Description is " + desc, width / 2, height / 2 + 340);
 
-      for (let i = 0; i < dots.length; i++) {
-        dots[i].display();
-        dots[i].move();
-}
-        // cloud
-        // fill('white');
-        // noStroke();
-        // ellipse(x, 300, 200, 100);
-        //
-        // // move the cloud's x position
-        // x = x + windspeed;
-        // if (x > width) x = 0;
 
-        break;
+
+      break;
 
 
   }
@@ -124,7 +117,7 @@ class Dot {
 
   display() {
     noStroke();
-    fill(255,255,255, this.a);
+    fill(255, 255, 255, this.a);
     ellipse(this.pos.x, this.pos.y, 5, 5);
   }
 
