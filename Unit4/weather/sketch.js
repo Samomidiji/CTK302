@@ -119,7 +119,7 @@ function draw() {
 class Dot {
   constructor() {
     this.pos = createVector(random(width), random(height));
-    this.a = 40
+    this.a = 50
   }
 
   display() {
