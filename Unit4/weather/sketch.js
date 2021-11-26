@@ -62,7 +62,7 @@ function gotData(data) {
 
 
 function draw() {
-  image(bg, width / 2, height / 2, width, height);
+  image(bg, width / 2, height / 2, 1920, 1080);
 
   switch (myState) {
     case 0:
@@ -72,7 +72,7 @@ function draw() {
       break;
 
     case 1:
-      background('blue');
+      //background('blue');
       for (let i = 0; i < dots.length; i++) {
         dots[i].display();
         dots[i].move();
