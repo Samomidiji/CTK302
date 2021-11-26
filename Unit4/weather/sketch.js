@@ -72,7 +72,7 @@ function draw() {
       break;
 
     case 1:
-      // background(200);
+      background('blue');
       for (let i = 0; i < dots.length; i++) {
         dots[i].display();
         dots[i].move();
