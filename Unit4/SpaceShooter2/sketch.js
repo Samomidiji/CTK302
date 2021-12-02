@@ -66,9 +66,6 @@ function setup() {
     // text("non ios 13 device", 100, 100);
     permissionGranted = true;
   }
-}
-
-
   // Adding background, images and font assets
   bg = loadImage('assets/bg.png');
   alien = loadImage('assets/1.png');
@@ -105,6 +102,9 @@ function setup() {
   // shipPos = createVector(width / 2, height - 60);
 
 }
+
+
+
 
 function requestAccess() {
   DeviceOrientationEvent.requestPermission()
@@ -253,7 +253,7 @@ function game() {
  cy += dy*2;
  cx = constrain(cx, 0, width);
  cy = constrain(cy, 0, height);
- 
+
 
 
   image(ship, cx, cy, 70, 109);
