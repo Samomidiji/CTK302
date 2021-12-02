@@ -59,21 +59,16 @@ function setup() {
         button.mousePressed(requestAccess);
         throw error;
       })
-      // .then(() => {
-      //   // on any subsequent visits
-      //   permissionGranted = true;
-      // });
+      .then(() => {
+        // on any subsequent visits
+        permissionGranted = true;
+      });
   } else {
     // non ios 13 device
     textSize(48);
     // text("non ios 13 device", 100, 100);
     permissionGranted = true;
   }
-
-  alpha = 0;
-  beta = 0;
-  gamma = 0;
-
 
 
   // Adding background, images and font assets
@@ -251,14 +246,8 @@ function game() {
   // fill("green");
   // rect(shipPos.x, shipPos.y, 50, 50);
 
-  //  Spaceship position
-  // shipPos.x = cx;
-  // shipPos.y = cy;
-
   // cx = width / 2;
   // cy = height - 60;
-  // cx = map(gamma, -18, 18, 0, width);
-  // cy = map(beta, 25, 45, 0, height);
   // rotationX, rotationY
   const dx = constrain(rotationY, -3, 3);
   const dy = constrain(rotationX, -3, 3);
@@ -267,7 +256,6 @@ function game() {
   cx = constrain(cx, 0, width);
   cy = constrain(cy, 0, height);
 
-  // shipPos = (width / 2, height - 60);
 
   image(ship, cx, cy, 70, 109);
   if (cx >= width) cx = width;
@@ -290,28 +278,28 @@ function keyPressed() {
   }
 }
 
-function checkForKey() {
-  // if (keyIsDown(32)){
-  //   let bullet = new Bullet(width/2, height/2);
-  //   bullets.push(bullet);
-  // }
-
-  if (keyIsDown(LEFT_ARROW)) {
-    cx -= 5;
-  }
-
-  if (keyIsDown(RIGHT_ARROW)) {
-    cx += 5;
-  }
-
-  if (keyIsDown(UP_ARROW)) {
-    cy -= 5;
-  }
-
-  if (keyIsDown(DOWN_ARROW)) {
-    cy += 5;
-  }
-}
+// function checkForKey() {
+//   // if (keyIsDown(32)){
+//   //   let bullet = new Bullet(width/2, height/2);
+//   //   bullets.push(bullet);
+//   // }
+//
+//   if (keyIsDown(LEFT_ARROW)) {
+//     cx -= 5;
+//   }
+//
+//   if (keyIsDown(RIGHT_ARROW)) {
+//     cx += 5;
+//   }
+//
+//   if (keyIsDown(UP_ARROW)) {
+//     cy -= 5;
+//   }
+//
+//   if (keyIsDown(DOWN_ARROW)) {
+//     cy += 5;
+//   }
+// }
 
 class Aliens {
   //  Constructor and attributes
