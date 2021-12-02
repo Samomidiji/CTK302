@@ -31,7 +31,7 @@ let maxDots = 100;
 
 
 function setup() {
-  createCanvas(400, 700);
+  createCanvas(windowWidth, windowHeight);
   rectMode(CENTER);
   noStroke();
   imageMode(CENTER);
@@ -112,7 +112,7 @@ function requestAccess() {
 
 
 function draw() {
-  if (!permissionGranted) return;
+  // if (!permissionGranted) return;
 
   background(220);
   image(bg, width / 2, height / 2, displayWidth, displayHeight);
