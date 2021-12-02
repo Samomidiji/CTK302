@@ -31,7 +31,7 @@ let maxDots = 100;
 
 
 function setup() {
-  createCanvas(displayWidth, displayHeight);
+  createCanvas(windowWidth, windowHeight);
   rectMode(CENTER);
   noStroke();
   imageMode(CENTER);
@@ -242,8 +242,8 @@ function game() {
   const dy = constrain(rotationX, -3, 3);
   shipPos.x += dx * 2;
   shipPos.y += dy * 2;
-  shipPos.x = constrain(cx, 0, width);
-  shipPos.y = constrain(cy, 0, height);
+  shipPos.x = constrain(shipPos.x, 0, width);
+  shipPos.y = constrain(shipPos.y, 0, height);
 
   image(ship, shipPos.x, shipPos.y, 70, 109);
   checkForKey();
