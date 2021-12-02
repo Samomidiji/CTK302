@@ -42,7 +42,7 @@ let maxDots = 100;
 
 
 function setup() {
-  createCanvas(1170 / 3, 2532 / 4);
+  createCanvas(displayWidth, displayHeight);
   rectMode(CENTER);
   noStroke();
   imageMode(CENTER);
@@ -134,7 +134,7 @@ function requestAccess() {
 
 function draw() {
   background(220);
-  image(bg, width / 2, height / 2, 1170 / 2.8, 2532 / 2.8);
+  image(bg, width / 2, height / 2, displayWidth, displayHeight);
   for (let i = 0; i < dots.length; i++) {
     dots[i].display();
     dots[i].move();
