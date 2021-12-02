@@ -261,8 +261,8 @@ function game() {
 
   cx = width / 2;
   cy = height - 60;
-  cx = map(gamma, -1, 1, 0, width);
-  cy = map(beta, -1000, 1000, 0, height);
+  cx = map(gamma, -18, 18, 0, width);
+  cy = map(beta, 25, 45, 0, height);
 
   // shipPos = (width / 2, height - 60);
   checkForKey();
