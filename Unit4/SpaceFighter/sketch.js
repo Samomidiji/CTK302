@@ -36,6 +36,30 @@ function setup() {
   noStroke();
   imageMode(CENTER);
 
+  // DeviceOrientationEvent, DeviceMotionEvent
+  if (typeof(DeviceOrientationEvent) !== 'undefined' && typeof(DeviceOrientationEvent.requestPermission) === 'function') {
+    // ios 13 device
+
+    DeviceOrientationEvent.requestPermission()
+      .catch(() => {
+        // show permission dialog only the first time
+        let button = createButton("click to allow access to sensors");
+        button.style("font-size", "24px");
+        button.center();
+        button.mousePressed(requestAccess);
+        throw error;
+      })
+      .then(() => {
+        // on any subsequent visits
+        permissionGranted = true;
+      })
+  } else {
+    // non ios 13 device
+    textSize(48);
+    // text("non ios 13 device", 100, 100);
+    permissionGranted = true;
+  }
+
   // Adding background, images and font assets
   bg = loadImage('assets/bg.png');
   alien = loadImage('assets/1.png');
@@ -70,30 +94,6 @@ function setup() {
 
   //  Spaceship position
   shipPos = createVector(width / 2, height - 60);
-
-  // DeviceOrientationEvent, DeviceMotionEvent
-  if (typeof(DeviceOrientationEvent) !== 'undefined' && typeof(DeviceOrientationEvent.requestPermission) === 'function') {
-    // ios 13 device
-
-    DeviceOrientationEvent.requestPermission()
-      .catch(() => {
-        // show permission dialog only the first time
-        let button = createButton("click to allow access to sensors");
-        button.style("font-size", "24px");
-        button.center();
-        button.mousePressed(requestAccess);
-        throw error;
-      })
-      .then(() => {
-        // on any subsequent visits
-        permissionGranted = true;
-      })
-  } else {
-    // non ios 13 device
-    textSize(48);
-    // text("non ios 13 device", 100, 100);
-    permissionGranted = true;
-  }
 }
 
 function requestAccess() {
@@ -243,7 +243,7 @@ function game() {
     shipPos.y += dy*2;
     shipPos.x = constrain(cx, 0, width);
     shipPos.y = constrain(cy, 0, height);
-    
+
   image(ship, shipPos.x, shipPos.y, 70, 109);
   checkForKey();
   if (shipPos.x >= width) shipPos.x = width;
