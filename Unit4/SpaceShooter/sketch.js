@@ -115,7 +115,7 @@ function setup() {
   //bullets = new Bullet(width / 2, height / 2);
 
   //  Spaceship position
-  // shipPos = createVector(width / 2, height - 60);
+  shipPos = createVector(width / 2, height - 60);
 
 }
 
@@ -258,20 +258,20 @@ function game() {
   // rect(shipPos.x, shipPos.y, 50, 50);
 
   //  Spaceship position
-  // shipPos.x = cx;
-  // shipPos.y = cy;
+  shipPos.x = cx;
+  shipPos.y = cy;
 
   cx = width / 2;
   cy = height - 60;
-  // cx = map(gamma, -18, 18, 0, width);
-  // cy = map(beta, 25, 45, 0, height);
+  cx = map(gamma, -18, 18, 0, width);
+  cy = map(beta, 25, 45, 0, height);
   // rotationX, rotationY
-  const dx = constrain(rotationY, -3, 3);
-  const dy = constrain(rotationX, -3, 3);
-  cx += dx * 2;
-  cy += dy * 2;
-  cx = constrain(cx, 0, width);
-  cy = constrain(cy, 0, height);
+  // const dx = constrain(rotationY, -3, 3);
+  // const dy = constrain(rotationX, -3, 3);
+  // cx += dx * 2;
+  // cy += dy * 2;
+  // cx = constrain(cx, 0, width);
+  // cy = constrain(cy, 0, height);
 
   // shipPos = (width / 2, height - 60);
 
