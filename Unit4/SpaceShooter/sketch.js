@@ -112,7 +112,7 @@ function setup() {
   //bullets = new Bullet(width / 2, height / 2);
 
   //  Spaceship position
-  shipPos = createVector(width / 2, height - 60);
+  // shipPos = createVector(width / 2, height - 60);
 
 }
 
@@ -255,8 +255,8 @@ function game() {
   // rect(shipPos.x, shipPos.y, 50, 50);
 
   //  Spaceship position
-  shipPos.x = cx;
-  shipPos.y = cy;
+  // shipPos.x = cx;
+  // shipPos.y = cy;
 
   cx = width / 2;
   cy = height - 60;
