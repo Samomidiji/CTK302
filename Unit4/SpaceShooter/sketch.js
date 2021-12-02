@@ -42,7 +42,7 @@ let maxDots = 100;
 
 
 function setup() {
-  createCanvas(1170 / 2.8, 2532 / 2.8);
+  createCanvas(1170 / 3.5, 2532 / 3.5);
   rectMode(CENTER);
   noStroke();
   imageMode(CENTER);
@@ -262,7 +262,7 @@ function game() {
   cx = width / 2;
   cy = height - 60;
   cx = map(gamma, -1, 1, 0, width);
-  cy = map(beta, 1, 10, 0, height);
+  cy = map(beta, -1000, 1000, 0, height);
 
   // shipPos = (width / 2, height - 60);
   image(ship, cx, cy, 70, 109);
