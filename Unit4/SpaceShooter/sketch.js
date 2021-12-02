@@ -254,21 +254,29 @@ function game() {
   //  Space ship
   // fill("green");
   // rect(shipPos.x, shipPos.y, 50, 50);
+
   //  Spaceship position
   shipPos.x = cx;
   shipPos.y = cy;
 
   cx = width / 2;
   cy = height - 60;
-  cx = map(gamma, -18, 18, 0, width);
-  cy = map(beta, 25, 45, 0, height);
+  cx = map(gamma, -8, 8, 0, width);
+  cy = map(beta, 15, 35, 0, height);
 
   // shipPos = (width / 2, height - 60);
   image(ship, cx, cy, 70, 109);
   checkForKey();
   if (cx >= width) cx = width;
   if (cx <= 0) cx = 0;
+
+  //  Touch screen to shoot
+  if (mouseIsPressed) {
+    bullets.push(new Bullet());
+  }
 }
+
+
 
 // Spawns Bullets when spacebar is pressed
 function keyPressed() {
