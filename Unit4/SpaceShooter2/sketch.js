@@ -261,8 +261,8 @@ function game() {
   // shipPos.x = cx;
   // shipPos.y = cy;
 
-  cx = width / 2;
-  cy = height - 60;
+  // cx = width / 2;
+  // cy = height - 60;
   // cx = map(gamma, -18, 18, 0, width);
   // cy = map(beta, 25, 45, 0, height);
   // rotationX, rotationY
