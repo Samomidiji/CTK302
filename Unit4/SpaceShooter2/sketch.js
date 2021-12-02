@@ -246,8 +246,8 @@ function game() {
   // fill("green");
   // rect(shipPos.x, shipPos.y, 50, 50);
 
-  // cx = width / 2;
-  // cy = height - 60;
+  cx = width / 2;
+  cy = height - 60;
   // rotationX, rotationY
   const dx = constrain(rotationY, -3, 3);
   const dy = constrain(rotationX, -3, 3);
