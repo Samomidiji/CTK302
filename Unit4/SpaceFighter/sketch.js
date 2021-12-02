@@ -31,7 +31,7 @@ let maxDots = 100;
 
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(displayWidth, displayHeight);
   rectMode(CENTER);
   noStroke();
   imageMode(CENTER);
@@ -105,14 +105,15 @@ function requestAccess() {
         permissionGranted = false;
       }
     })
-  .catch(console.error);
+    .catch(console.error);
 
   this.remove();
 }
 
 
 function draw() {
-   if (!permissionGranted) return;
+  if (!permissionGranted) return;
+
   background(220);
   image(bg, width / 2, height / 2, displayWidth, displayHeight);
   for (let i = 0; i < dots.length; i++) {
@@ -238,11 +239,11 @@ function game() {
 
   // shipPos = (width / 2, height - 60);
   const dx = constrain(rotationY, -3, 3);
-    const dy = constrain(rotationX, -3, 3);
-    shipPos.x += dx*2;
-    shipPos.y += dy*2;
-    shipPos.x = constrain(cx, 0, width);
-    shipPos.y = constrain(cy, 0, height);
+  const dy = constrain(rotationX, -3, 3);
+  shipPos.x += dx * 2;
+  shipPos.y += dy * 2;
+  shipPos.x = constrain(cx, 0, width);
+  shipPos.y = constrain(cy, 0, height);
 
   image(ship, shipPos.x, shipPos.y, 70, 109);
   checkForKey();
