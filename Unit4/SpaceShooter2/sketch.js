@@ -41,7 +41,7 @@ function setup() {
   imageMode(CENTER);
 
   cx = width / 2;
-  cy = height - 60;
+  cy = height /2 ;
 
   // DeviceOrientationEvent, DeviceMotionEvent
   if (typeof(DeviceOrientationEvent) !== 'undefined' && typeof(DeviceOrientationEvent.requestPermission) === 'function') {
@@ -122,6 +122,8 @@ function requestAccess() {
 }
 
 function draw() {
+  if (!permissionGranted) return;
+
   background(220);
   image(bg, width / 2, height / 2, displayWidth, displayHeight);
   for (let i = 0; i < dots.length; i++) {
