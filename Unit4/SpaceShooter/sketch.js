@@ -261,15 +261,14 @@ function game() {
 
   cx = width / 2;
   cy = height - 60;
-  cx = map(gamma, -8, 8, 0, width);
-  cy = map(beta, 15, 35, 0, height);
+  cx = map(gamma, -1, 1, 0, width);
+  cy = map(beta, 1, 10, 0, height);
 
   // shipPos = (width / 2, height - 60);
   image(ship, cx, cy, 70, 109);
-  checkForKey();
   if (cx >= width) cx = width;
   if (cx <= 0) cx = 0;
-
+checkForKey();
   //  Touch screen to shoot
   if (mouseIsPressed) {
     bullets.push(new Bullet());
