@@ -258,22 +258,22 @@ function game() {
   shipPos.x = cx;
   shipPos.y = cy;
 
-
-  // cx = map(gamma, -18, 18, 0, width);
-  // cy = map(beta, 25, 45, 0, height);
-  rotationX, rotationY
-  const dx = constrain(rotationY, -3, 3);
-  const dy = constrain(rotationX, -3, 3);
-  // print(dx + "," + dy);
-  cx += dx * 2;
-  cy += dy * 2;
-  cx = constrain(cx, 0, width);
-  cy = constrain(cy, 0, height);
+  cx = width / 2;
+  cy = height - 60;
+  cx = map(gamma, -18, 18, 0, width);
+  cy = map(beta, 25, 45, 0, height);
+  // rotationX, rotationY
+  // const dx = constrain(rotationY, -3, 3);
+  // const dy = constrain(rotationX, -3, 3);
+  // // print(dx + "," + dy);
+  // cx += dx * 2;
+  // cy += dy * 2;
+  // cx = constrain(cx, 0, width);
+  // cy = constrain(cy, 0, height);
 
   // shipPos = (width / 2, height - 60);
   checkForKey();
-  cx = width / 2;
-  cy = height - 60;
+
   image(ship, cx, cy, 70, 109);
   if (cx >= width) cx = width;
   if (cx <= 0) cx = 0;
