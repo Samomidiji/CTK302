@@ -260,7 +260,7 @@ function game() {
   image(ship, cx, cy, 70, 109);
   if (cx >= width) cx = width;
   if (cx <= 0) cx = 0;
-  if (cy >= height) cx = height;
+  if (cy >= height) cy = height;
   if (cy <= 0) cy = 0;
   checkForKey();
   //  Touch screen to shoot
@@ -278,28 +278,28 @@ function keyPressed() {
   }
 }
 
-// function checkForKey() {
-//   // if (keyIsDown(32)){
-//   //   let bullet = new Bullet(width/2, height/2);
-//   //   bullets.push(bullet);
-//   // }
-//
-//   if (keyIsDown(LEFT_ARROW)) {
-//     cx -= 5;
-//   }
-//
-//   if (keyIsDown(RIGHT_ARROW)) {
-//     cx += 5;
-//   }
-//
-//   if (keyIsDown(UP_ARROW)) {
-//     cy -= 5;
-//   }
-//
-//   if (keyIsDown(DOWN_ARROW)) {
-//     cy += 5;
-//   }
-// }
+function checkForKey() {
+  // if (keyIsDown(32)){
+  //   let bullet = new Bullet(width/2, height/2);
+  //   bullets.push(bullet);
+  // }
+
+  if (keyIsDown(LEFT_ARROW)) {
+    cx -= 5;
+  }
+
+  if (keyIsDown(RIGHT_ARROW)) {
+    cx += 5;
+  }
+
+  if (keyIsDown(UP_ARROW)) {
+    cy -= 5;
+  }
+
+  if (keyIsDown(DOWN_ARROW)) {
+    cy += 5;
+  }
+}
 
 class Aliens {
   //  Constructor and attributes
