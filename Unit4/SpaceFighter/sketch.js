@@ -7,7 +7,7 @@ let alienKilled = 0;
 let alienBKilled = 0;
 let alienCKilled = 0;
 let alienDKilled = 0;
-let cx, cy;
+
 
 // Declearing Bullet
 let bullets = [];
@@ -31,7 +31,7 @@ let maxDots = 100;
 
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(400, 700);
   rectMode(CENTER);
   noStroke();
   imageMode(CENTER);
