@@ -63,10 +63,10 @@ function setup() {
         button.mousePressed(requestAccess);
         throw error;
       })
-      .then(() => {
-        // on any subsequent visits
-        permissionGranted = true;
-      });
+      // .then(() => {
+      //   // on any subsequent visits
+      //   permissionGranted = true;
+      // });
   } else {
     // non ios 13 device
     textSize(48);
