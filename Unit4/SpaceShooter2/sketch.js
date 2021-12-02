@@ -268,8 +268,8 @@ function game() {
   // rotationX, rotationY
   const dx = constrain(rotationY, -3, 3);
   const dy = constrain(rotationX, -3, 3);
-  cx += dx * 0.1;
-  cy += dy * 0.1;
+  cx += dx * 0.5;
+  cy += dy * 0.5;
   cx = constrain(cx, 0, width);
   cy = constrain(cy, 0, height);
 
