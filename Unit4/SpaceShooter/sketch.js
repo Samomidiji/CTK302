@@ -42,7 +42,7 @@ let maxDots = 100;
 
 
 function setup() {
-  createCanvas(1170 / 3.5, 2532 / 3.5);
+  createCanvas(1170 / 3, 2532 / 4);
   rectMode(CENTER);
   noStroke();
   imageMode(CENTER);
