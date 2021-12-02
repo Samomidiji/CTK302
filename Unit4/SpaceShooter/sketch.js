@@ -268,6 +268,8 @@ function game() {
   image(ship, cx, cy, 70, 109);
   if (cx >= width) cx = width;
   if (cx <= 0) cx = 0;
+  if (cy >= height) cx = height;
+  if (cy <= 0) cy = 0;
 checkForKey();
   //  Touch screen to shoot
   if (mouseIsPressed) {
