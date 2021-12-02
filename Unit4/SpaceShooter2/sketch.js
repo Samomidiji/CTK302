@@ -41,7 +41,7 @@ let maxDots = 100;
 
 
 function setup() {
-  createCanvas(displayWidth, displayHeight);
+  createCanvas(windowWidth, windowHeight);
   rectMode(CENTER);
   noStroke();
   imageMode(CENTER);
@@ -268,8 +268,8 @@ function game() {
   // rotationX, rotationY
   const dx = constrain(rotationY, -3, 3);
   const dy = constrain(rotationX, -3, 3);
-  cx += dx * 2;
-  cy += dy * 2;
+  cx += dx * 0.5;
+  cy += dy * 0.5;
   cx = constrain(cx, 0, width);
   cy = constrain(cy, 0, height);
 
@@ -461,17 +461,17 @@ class Dot {
 // HERE'S THE STUFF YOU NEED FOR READING IN DATA!!!
 
 // Read in accelerometer data
-// window.addEventListener('deviceorientation', function(e) {
-//   alpha = e.alpha;
-//   beta = e.beta;
-//   gamma = e.gamma;
-// });
-//
-//
-// // accelerometer Data
-// window.addEventListener('devicemotion', function(e) {
-//   // get accelerometer values
-//   x = e.acceleration.x;
-//   y = e.acceleration.y;
-//   z = e.acceleration.z;
-// });
+window.addEventListener('deviceorientation', function(e) {
+  alpha = e.alpha;
+  beta = e.beta;
+  gamma = e.gamma;
+});
+
+
+// accelerometer Data
+window.addEventListener('devicemotion', function(e) {
+  // get accelerometer values
+  x = e.acceleration.x;
+  y = e.acceleration.y;
+  z = e.acceleration.z;
+});
