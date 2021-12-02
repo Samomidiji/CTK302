@@ -35,7 +35,7 @@ let maxDots = 100;
 
 
 function setup() {
-  createCanvas(displayWidth, displayHeight);
+  createCanvas(windowWidth, windowHeight);
   rectMode(CENTER);
   noStroke();
   imageMode(CENTER);
@@ -44,10 +44,7 @@ function setup() {
   cy = height - 60;
 
   // DeviceOrientationEvent, DeviceMotionEvent
-  if (
-    typeof DeviceOrientationEvent !== "undefined" &&
-    typeof DeviceOrientationEvent.requestPermission === "function"
-  ) {
+  if (typeof(DeviceOrientationEvent) !== 'undefined' && typeof(DeviceOrientationEvent.requestPermission) === 'function') {
     // ios 13 device
 
     DeviceOrientationEvent.requestPermission()
@@ -56,19 +53,20 @@ function setup() {
         let button = createButton("click to allow access to sensors");
         button.style("font-size", "24px");
         button.center();
-        button.mousePressed(requestAccess);
+        button.mousePressed( requestAccess );
         throw error;
       })
       .then(() => {
         // on any subsequent visits
         permissionGranted = true;
-      });
+      })
   } else {
     // non ios 13 device
     textSize(48);
     // text("non ios 13 device", 100, 100);
     permissionGranted = true;
   }
+}
 
 
   // Adding background, images and font assets
@@ -246,8 +244,8 @@ function game() {
   // fill("green");
   // rect(shipPos.x, shipPos.y, 50, 50);
 
-  cx = width / 2;
-  cy = height - 60;
+  // cx = width / 2;
+  // cy = height - 60;
   // rotationX, rotationY
   const dx = constrain(rotationY, -3, 3);
   const dy = constrain(rotationX, -3, 3);
@@ -258,11 +256,13 @@ function game() {
 
 
   image(ship, cx, cy, 70, 109);
+
   if (cx >= width) cx = width;
   if (cx <= 0) cx = 0;
   if (cy >= height) cy = height;
   if (cy <= 0) cy = 0;
   checkForKey();
+  
   //  Touch screen to shoot
   if (mouseIsPressed) {
     bullets.push(new Bullet());
