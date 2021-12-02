@@ -248,11 +248,12 @@ function game() {
   // cy = height - 60;
   // rotationX, rotationY
   const dx = constrain(rotationY, -3, 3);
-  const dy = constrain(rotationX, -3, 3);
-  cx += dx * 2;
-  cy += dy * 2;
-  cx = constrain(cx, 0, width);
-  cy = constrain(cy, 0, height);
+ const dy = constrain(rotationX, -3, 3);
+ cx += dx*2;
+ cy += dy*2;
+ cx = constrain(cx, 0, width);
+ cy = constrain(cy, 0, height);
+ 
 
 
   image(ship, cx, cy, 70, 109);
@@ -262,7 +263,7 @@ function game() {
   if (cy >= height) cy = height;
   if (cy <= 0) cy = 0;
   checkForKey();
-  
+
   //  Touch screen to shoot
   if (mouseIsPressed) {
     bullets.push(new Bullet());
