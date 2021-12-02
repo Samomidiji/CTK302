@@ -265,12 +265,13 @@ function game() {
   cy = map(beta, -1000, 1000, 0, height);
 
   // shipPos = (width / 2, height - 60);
+  checkForKey();
   image(ship, cx, cy, 70, 109);
   if (cx >= width) cx = width;
   if (cx <= 0) cx = 0;
   if (cy >= height) cx = height;
   if (cy <= 0) cy = 0;
-checkForKey();
+
   //  Touch screen to shoot
   if (mouseIsPressed) {
     bullets.push(new Bullet());
@@ -293,19 +294,19 @@ function checkForKey() {
   // }
 
   if (keyIsDown(LEFT_ARROW)) {
-    shipPos.x -= 5;
+    cx -= 5;
   }
 
   if (keyIsDown(RIGHT_ARROW)) {
-    shipPos.x += 5;
+    cx += 5;
   }
 
   if (keyIsDown(UP_ARROW)) {
-    shipPos.y -= 5;
+    cy -= 5;
   }
 
   if (keyIsDown(DOWN_ARROW)) {
-    shipPos.y += 5;
+    cy += 5;
   }
 }
 
