@@ -1,9 +1,3 @@
-// Declaring for gyro
-var beta, gamma; // orientation data
-var x = 0; // acceleration data
-var y = 0;
-var z = 0;
-
 let permissionGranted = false;
 let cx, cy;
 
