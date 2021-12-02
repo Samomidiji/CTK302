@@ -32,7 +32,7 @@ function gotData(data) {
   console.log(sheet); // Print the data in the console
 
   for (let i = -1; i < sheet.length; i++) {
-    resp.push(new Response(width / 2 - 640 + i * 180, 253, n));
+    resp.push(new Response(width / 2 - 630 + i * 180, 253, n));
     num = i + 2
     n = "Response " + num;
     console.log(n);
@@ -41,7 +41,7 @@ function gotData(data) {
   // add each line to an array of bubbles
   for (let i = 0; i < sheet.length; i++) {
     abouts.push(
-      new About(width / 2 - 640 + i * 180, 300,
+      new About(width / 2 - 630 + i * 180, 300,
         sheet[i]["Which is your best animal?"],
         sheet[i]["Who is your best teacher?"],
         sheet[i]["What music do you like?"],
@@ -59,9 +59,9 @@ image(sleep,width / 2 - 365, height / 2 - 80, 630, 446)
   let link = "Visit\nbit.ly/ctksamsurvey"
   textSize(25)
   fill(0, 7, 69);
-  text(title, width / 2, height / 2 - 400);
+  text(title, width / 2, height / 2 - 330);
   textSize(15)
-  text(link, width / 2, height / 2 - 370);
+  text(link, width / 2, height / 2 - 300);
   // // iterate through the bubbles and display the objects!
   for (let i = 0; i < abouts.length; i++) {
     abouts[i].display();
