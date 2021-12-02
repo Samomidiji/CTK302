@@ -419,7 +419,7 @@ class AliensD {
 class Bullet {
   //Constructor and attributes
   constructor() {
-    this.pos = createVector(cx, cy;
+    this.pos = createVector(cx, cy);
     this.vel = createVector(0, -5);
     this.col = color("red");
     this.r = 12;
