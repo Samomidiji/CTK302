@@ -206,10 +206,10 @@ function game() {
   if (shipPos.y >= height) shipPos.y = height;
   if (shipPos.y <= 0) shipPos.y = 0;
 
-  //  Touch screen to shoot
-  if (mouseIsPressed) {
-    bullets.push(new Bullet());
-  }
+  // //  Touch screen to shoot
+  // if (mouseIsPressed) {
+  //   bullets.push(new Bullet());
+  // }
 }
 
 
