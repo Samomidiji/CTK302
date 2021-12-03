@@ -72,7 +72,7 @@ function setup() {
   aliend = loadImage('assets/4.png');
   ship = loadImage('assets/ship.png');
   bulet = loadImage('assets/bul.png');
-  titl = loadImage('assets/war.png');
+  titl = loadImage('assets/War.png');
 
   for (let i = 0; i <= maxDots; i++) {
     dots.push(new Dot());
