@@ -7,6 +7,9 @@ let alienKilled = 0;
 let alienBKilled = 0;
 let alienCKilled = 0;
 let alienDKilled = 0;
+let state = 0;
+let timer = 0;
+let stop = 3;
 
 
 // Declearing Bullet
@@ -28,6 +31,7 @@ let bulet;
 let ship;
 let dots = [];
 let maxDots = 100;
+let title;
 
 
 function setup() {
@@ -68,6 +72,7 @@ function setup() {
   aliend = loadImage('assets/4.png');
   ship = loadImage('assets/ship.png');
   bulet = loadImage('assets/bul.png');
+  title = loadImage('assets/war.png');
 
   for (let i = 0; i <= maxDots; i++) {
     dots.push(new Dot());
@@ -121,12 +126,34 @@ function draw() {
     dots[i].move();
   }
 
-  textSize(20);
-  textAlign(CENTER);
-  fill('white');
-  let deadaliens = alienKilled + alienBKilled + alienCKilled + alienDKilled;
-  text(deadaliens + " Aliens Dead", width / 2, 100);
-  game();
+
+  switch (state) {
+    case 0:
+      image(title, width / 2, height / 2, 866 / 2, 427 / 2);
+      timer++
+      if (timer >= 3 * 60) state = 1;
+      if (frameCount % 60 == 0 && stop > 0) {
+        stop -- ;
+      }
+      textSize(20);
+      textAlign(CENTER);
+      fill('white');
+      text("Game begin in " + stop, width / 2, 100);
+      break;
+
+    case 1:
+      textSize(20);
+      textAlign(CENTER);
+      fill('white');
+      let deadaliens = alienKilled + alienBKilled + alienCKilled + alienDKilled;
+      text(deadaliens + " Aliens Dead", width / 2, 100);
+      game();
+      break;
+
+
+  }
+
+
 }
 
 function game() {
@@ -311,6 +338,8 @@ class Aliens {
     this.pos.add(this.vel);
     if (this.pos.x >= width) this.pos.x = 1;
     if (this.pos.x <= 0) this.pos.x = width;
+    if (this.pos.y >= height) this.pos.y = 1;
+    // if (this.pos.y <= 0) this.pos.y = height;
   }
 }
 
@@ -335,6 +364,8 @@ class AliensB {
     this.pos.add(this.vel);
     if (this.pos.x >= width) this.pos.x = 1;
     if (this.pos.x <= 0) this.pos.x = width;
+    if (this.pos.y >= height) this.pos.y = 1;
+    // if (this.pos.y <= 0) this.pos.y = height;
   }
 }
 
@@ -359,6 +390,8 @@ class AliensC {
     this.pos.add(this.vel);
     if (this.pos.x >= width) this.pos.x = 1;
     if (this.pos.x <= 0) this.pos.x = width;
+    if (this.pos.y >= height) this.pos.y = 1;
+    // if (this.pos.y <= 0) this.pos.y = height;
   }
 }
 
@@ -383,6 +416,8 @@ class AliensD {
     this.pos.add(this.vel);
     if (this.pos.x >= width) this.pos.x = 1;
     if (this.pos.x <= 0) this.pos.x = width;
+    if (this.pos.y >= height) this.pos.y = 1;
+    // if (this.pos.y <= 0) this.pos.y = height;
   }
 }
 
