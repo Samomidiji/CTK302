@@ -12,6 +12,7 @@ let font;
 let fontB;
 let loct;
 let cloud;
+let jack;
 let wind;
 let drop;
 let dots = [];
@@ -38,6 +39,7 @@ function setup() {
   fontB = loadFont('asset/GilroySB.otf')
   loct = loadImage('asset/loct.png');
   cloud = loadImage('asset/cloud.png');
+  jack = loadImage('asset/jack.png');
   wind = loadImage('asset/wind.png');
   drop = loadImage('asset/drop.png');
 
@@ -88,7 +90,7 @@ function draw() {
       textSize(80);
       text(temp + "°F", width / 2, height / 2 - 190);
 
-      image(cloud, width / 2, height / 2 + 30, 683 / 1.5, 576 / 1.5);
+      image(jack, width / 2, height / 2 + 30, 177, 403);
 
       image(wind, width / 2 - 165, height / 2 + 273, 235 / 10, 235 / 10);
       image(drop, width / 2 + 40, height / 2 + 273, 221 / 10, 217 / 10);
