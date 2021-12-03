@@ -31,7 +31,7 @@ let bulet;
 let ship;
 let dots = [];
 let maxDots = 100;
-let title;
+let titl;
 
 
 function setup() {
@@ -72,7 +72,7 @@ function setup() {
   aliend = loadImage('assets/4.png');
   ship = loadImage('assets/ship.png');
   bulet = loadImage('assets/bul.png');
-  title = loadImage('assets/war.png');
+  titl = loadImage('assets/war.png');
 
   for (let i = 0; i <= maxDots; i++) {
     dots.push(new Dot());
@@ -129,12 +129,12 @@ function draw() {
 
   switch (state) {
     case 0:
-      image(title, width / 2, height / 2, 866 / 2, 427 / 2);
       timer++
       if (timer >= 3 * 60) state = 1;
       if (frameCount % 60 == 0 && stop > 0) {
         stop -- ;
       }
+      image(titl, width / 2, height / 2, 866 / 2, 427 / 2);
       textSize(20);
       textAlign(CENTER);
       fill('white');
