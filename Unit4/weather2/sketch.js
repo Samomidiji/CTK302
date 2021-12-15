@@ -20,50 +20,20 @@ let tempt;
 let drop;
 let dots = [];
 let maxDots = 500;
-let lat;
-let long;
-
-var locationData;
-
-function preload() {
-  locationData = getCurrentPosition();
-}
-
-// function positionPing(position) {
-//   distance = calcGeoDistance(locationData.latitude, locationData.longitude, position.latitude, position.longitude, 'mi');
-//   let lat = locationData.latitude;
-//   let long = locationData.longitude;
-//   let latPos = position.latitude;
-//   let longPos = position.longitude;
-//
-//   print(lat);
-//   print(long);
-//
-// }
-
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
-  // // this is what calls positionPing function
-  // getCurrentPosition(positionPing);
+  // HERE is the call to get the weather.
 
-  //Declaing Latitude and Longitude from locationData
-  let lat = locationData.latitude;
-  let long = locationData.longitude;
-  print(lat);
-  print(long);
+  var myCityString = 'https://api.openweathermap.org/data/2.5/weather?q=Normal,IL,US&units=imperial&';
 
-  // // HERE is the call to get the weather.
-  //
-  var myCityString = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + long + '&units=imperial&';
-  //
   //You can also use "zipcode" - var myJSONString = 'https://api.openweathermap.org/data/2.5/weather?zip=61820,us&units=imperial&';
-  //
+
   var myIDString = 'appid=fd701dfb06f440d56db96fbdd2cbc3cf'; // USE YOUR ID HERE, take out the x's!!!
-  //
+
   var myBigString = myCityString + myIDString;
-  //
+
   loadJSON(myBigString, gotData); // that gotData function happens when JSON comes back.
   textAlign(LEFT);
   imageMode(CENTER);
@@ -84,6 +54,7 @@ function setup() {
   }
 
 }
+
 
 function gotData(data) {
 
@@ -182,7 +153,7 @@ function draw() {
       text("NOTE", width / 2 + 35, height / 2 + 125);
       textFont(font);
       textSize(16);
-      text("Today, " + desc + " is expected, with a humidity of " + humidity +". Put on a jacket as shown. It would be cold and windy." ,
+      text("Today," + desc + " is expected, with a humidity of " + humidity +". Put on a jacket as shown. It would be cold and windy." ,
       width / 2 + 165, height / 2 + 220, 260, 160);
 
       // textFont(fontB);
