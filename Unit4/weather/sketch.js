@@ -56,7 +56,7 @@ function setup() {
 
   // // HERE is the call to get the weather.
   //
-  var myCityString = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + long + '&units=imperial&';
+  var myCityString = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + long + '&units=metric&';
   //
   //You can also use "zipcode" - var myJSONString = 'https://api.openweathermap.org/data/2.5/weather?zip=61820,us&units=imperial&';
   //
@@ -90,7 +90,7 @@ function gotData(data) {
   weather = data;
   console.log(weather); // for debugging purposes, print out the JSON data when we get it.
   windspeed = weather.wind.speed;
-  temp = weather.main.temp;
+  temp = round(weather.main.temp);
   humidity = weather.main.humidity;
   desc = weather.weather[0].description;
 
@@ -167,8 +167,8 @@ function draw() {
       textAlign(CENTER);
       textFont(fontB);
       textSize(35);
-      tempc = round((temp - 32) / 1.8);
-      text(tempc + "°C", width / 2 + 80, height / 2 + 10);
+      // tempc = round((temp - 32) / 1.8);
+      text(temp + "°C", width / 2 + 80, height / 2 + 10);
       text(windspeed, width / 2 + 240, height / 2 + 10);
       textFont(font);
       textSize(16);
