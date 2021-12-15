@@ -22,6 +22,10 @@ let dots = [];
 let maxDots = 500;
 let lat;
 let long;
+let dress;
+let note;
+let windDes;
+let tempDes;
 
 var locationData;
 
@@ -89,7 +93,7 @@ function gotData(data) {
 
   weather = data;
   console.log(weather); // for debugging purposes, print out the JSON data when we get it.
-  windspeed = weather.wind.speed;
+  windspeed = round(weather.wind.speed);
   temp = round(weather.main.temp);
   humidity = weather.main.humidity;
   desc = weather.weather[0].description;
@@ -116,12 +120,18 @@ function draw() {
         dots[i].move();
       }
 
+      windDes = "windy";
+      tempDes = "Put on a jacket as shown. It would be cold";
+
+      dress = freeze;
+      note = tempDes + " and " + windDes + "."
+
       drawingContext.shadowOffsetX = 0;
       drawingContext.shadowOffsetY = 0;
       drawingContext.shadowBlur = 20;
       drawingContext.shadowColor = color(222, 222, 222);
       fill('white');
-      image(freeze, width / 2 - 160, height / 2, 300, 500);
+      image(dress, width / 2 - 160, height / 2, 300, 500);
       // rect(width / 2 - 160, height / 2, 300, 500);
 
       drawingContext.shadowOffsetX = 0;
@@ -169,7 +179,7 @@ function draw() {
       textSize(35);
       // tempc = round((temp - 32) / 1.8);
       text(temp + "°C", width / 2 + 80, height / 2 + 10);
-      text(windspeed, width / 2 + 240, height / 2 + 10);
+      text(windspeed + "m/s", width / 2 + 240, height / 2 + 10);
       textFont(font);
       textSize(16);
       text("Temperature", width / 2 + 80, height / 2 + 35);
@@ -182,8 +192,8 @@ function draw() {
       text("NOTE", width / 2 + 35, height / 2 + 125);
       textFont(font);
       textSize(16);
-      text("Today, " + desc + " is expected, with a humidity of " + humidity +". Put on a jacket as shown. It would be cold and windy." ,
-      width / 2 + 165, height / 2 + 220, 260, 160);
+      text("Today, " + desc + " is expected, with a humidity of " + humidity + ". " + note,
+        width / 2 + 165, height / 2 + 220, 260, 160);
 
       // textFont(fontB);
       // textSize(20);
