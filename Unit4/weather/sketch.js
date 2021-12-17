@@ -27,6 +27,16 @@ let note;
 let windDes;
 let tempDes;
 
+// let whatToWear = [
+//   "Put on a jacket as shown. It would be very cold",
+//   "The weather seems to be slightly cold, a sweater would be fine today",
+//   "Today seems like a great day, dress up casual",
+//   "It's pretty warm today, wear something light",
+//   "It's going to be hot today, put on some shorts and stay hydrated "
+// ];
+//
+// let imageToWear = [freeze, cold, normal, warm, hot];
+
 var locationData;
 
 function preload() {
@@ -47,7 +57,7 @@ function preload() {
 
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(displayWidth, displayHeight);
 
   // // this is what calls positionPing function
   // getCurrentPosition(positionPing);
