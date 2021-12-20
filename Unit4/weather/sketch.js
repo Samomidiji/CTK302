@@ -15,6 +15,10 @@ let loct;
 let cloud;
 let jack;
 let freeze;
+let cold;
+let normal;
+let warm;
+let hot;
 let wind;
 let tempt;
 let drop;
@@ -26,14 +30,19 @@ let dress;
 let note;
 let windDes;
 let tempDes;
+let index;
 
-// let whatToWear = [
-//   "Put on a jacket as shown. It would be very cold",
-//   "The weather seems to be slightly cold, a sweater would be fine today",
-//   "Today seems like a great day, dress up casual",
-//   "It's pretty warm today, wear something light",
-//   "It's going to be hot today, put on some shorts and stay hydrated "
-// ];
+let highestTemp = 40;
+let lowestTemp = 0;
+let columns = 0; // numbers between each length of temperature
+
+let whatToWear = [
+  "Put on a jacket as shown. It would be very cold",
+  "The weather seems to be slightly cold, a sweater would be fine today",
+  "Today seems like a great day, dress up casual",
+  "It's pretty warm today, wear something light",
+  "It's going to be hot today, put on some shorts and stay hydrated "
+];
 //
 // let imageToWear = [freeze, cold, normal, warm, hot];
 
@@ -57,7 +66,7 @@ function preload() {
 
 
 function setup() {
-  createCanvas(displayWidth, displayHeight);
+  createCanvas(windowWidth, windowHeight);
 
   // // this is what calls positionPing function
   // getCurrentPosition(positionPing);
@@ -89,7 +98,7 @@ function setup() {
   cloud = loadImage('asset/cloud.png');
   jack = loadImage('asset/jack.png');
   tempt = loadImage('asset/temp.png');
-  freeze = loadImage('asset/freeze.jpg');
+  freeze = loadImage('asset/freeze.png');
   wind = loadImage('asset/wind.png');
   drop = loadImage('asset/drop.png');
 
@@ -108,7 +117,26 @@ function gotData(data) {
   humidity = weather.main.humidity;
   desc = weather.weather[0].description;
 
+  // columns = (highestTemp - lowestTemp) / whatToWear.length;
+  // print(columns);
+  // index = (temp / columns).toFixed(0);
+  // print(index);
 
+
+  if (temp >= -10 && temp <= 10){
+    index = 0;
+  } else if (temp > 10 && temp <= 18) {
+    index = 1;
+  } else if (temp > 18 && temp <= 25) {
+    index = 2;
+  } else if (temp > 25 && temp <= 32) {
+    index = 3;
+  } else if (temp > 32) {
+    index = 4;
+  }
+
+
+print(whatToWear[index]);
 }
 
 
@@ -125,85 +153,93 @@ function draw() {
 
     case 1:
       //background('blue');
-      for (let i = 0; i < dots.length; i++) {
-        dots[i].display();
-        dots[i].move();
-      }
+      // for (let i = 0; i < dots.length; i++) {
+      //   dots[i].display();
+      //   dots[i].move();
+      // }
 
+      // Description goes here and takes in index
       windDes = "windy";
-      tempDes = "Put on a jacket as shown. It would be cold";
-
-      dress = freeze;
+      tempDes = whatToWear[index];
       note = tempDes + " and " + windDes + "."
 
+      // what to wear goes here and takes in index
+      dress = freeze;
+
+      // drawingContext.shadowOffsetX = 0;
+      // drawingContext.shadowOffsetY = 0;
+      // drawingContext.shadowBlur = 20;
+      // drawingContext.shadowColor = color(222, 222, 222);
+      // fill('white');
+      // rect(width / 2 + 160, height / 2 - 200, 300, 100, 20);
+
+      stroke(255, 143, 143);
+      drawingContext.shadowOffsetX = 0;
+      drawingContext.shadowOffsetY = 0;
+      drawingContext.shadowBlur = 20;
+      drawingContext.shadowColor = color(196, 196, 196);
+      fill('white');
+      rect(width / 2 - 80, height / 2 - 250, 140, 100, 20);
+
+      stroke(143, 219, 255);
+      drawingContext.shadowOffsetX = 0;
+      drawingContext.shadowOffsetY = 0;
+      drawingContext.shadowBlur = 20;
+      drawingContext.shadowColor = color(196, 196, 196);
+      fill('white');
+      rect(width / 2 + 80, height / 2 - 250, 140, 100, 20);
+
+      drawingContext.shadowOffsetX = 0;
+      drawingContext.shadowOffsetY = 0;
+      drawingContext.shadowBlur = 20;
+      drawingContext.shadowColor = color(196, 196, 196);
+      fill('white');
+      rect(width / 2, height / 2 + 240 , 300, 200, 20);
+
       drawingContext.shadowOffsetX = 0;
       drawingContext.shadowOffsetY = 0;
       drawingContext.shadowBlur = 20;
       drawingContext.shadowColor = color(222, 222, 222);
       fill('white');
-      image(dress, width / 2 - 160, height / 2, 300, 500);
+      image(dress, width / 2, height / 2, 300, 366.67);
       // rect(width / 2 - 160, height / 2, 300, 500);
 
-      drawingContext.shadowOffsetX = 0;
-      drawingContext.shadowOffsetY = 0;
-      drawingContext.shadowBlur = 20;
-      drawingContext.shadowColor = color(222, 222, 222);
-      fill('white');
-      rect(width / 2 + 160, height / 2 - 200, 300, 100);
 
-      drawingContext.shadowOffsetX = 0;
-      drawingContext.shadowOffsetY = 0;
-      drawingContext.shadowBlur = 20;
-      drawingContext.shadowColor = color(222, 222, 222);
-      fill('white');
-      rect(width / 2 + 80, height / 2 - 30, 140, 200);
-
-      drawingContext.shadowOffsetX = 0;
-      drawingContext.shadowOffsetY = 0;
-      drawingContext.shadowBlur = 20;
-      drawingContext.shadowColor = color(222, 222, 222);
-      fill('white');
-      rect(width / 2 + 240, height / 2 - 30, 140, 200);
-
-      drawingContext.shadowOffsetX = 0;
-      drawingContext.shadowOffsetY = 0;
-      drawingContext.shadowBlur = 20;
-      drawingContext.shadowColor = color(222, 222, 222);
-      fill('white');
-      rect(width / 2 + 160, height / 2 + 170, 300, 160);
-
+      noStroke();
+      //Location
       textAlign(LEFT);
-      image(loct, width / 2 + 50, height / 2 - 200, 432 / 15, 650 / 15);
+      image(loct, width / 2 - 135, height / 2 - 350, 432 / 15, 650 / 15);
       fill('Black');
       textFont(font);
       textSize(16);
-      text("You are in", width / 2 + 80, height / 2 - 210);
+      text("You are in", width / 2 - 100, height / 2 - 358);
       textFont(fontB);
       textSize(30);
-      text(weather.name, width / 2 + 80, height / 2 - 180);
+      text(weather.name, width / 2 - 100, height / 2 - 330);
 
-      image(tempt, width / 2 + 80, height / 2 - 70, 168 / 3.5, 232 / 3.5);
-      image(wind, width / 2 + 240, height / 2 - 70, 78, 46);
+      //Temp and Wind
+      image(tempt, width / 2 - 115, height / 2 - 250, 168 / 5, 232 / 5);
+      image(wind, width / 2 + 45, height / 2 - 250, 78 / 1.8, 46 / 1.8);
       textAlign(CENTER);
       textFont(fontB);
-      textSize(35);
+      textSize(22);
       // tempc = round((temp - 32) / 1.8);
-      text(temp + "°C", width / 2 + 80, height / 2 + 10);
-      text(windspeed + "m/s", width / 2 + 240, height / 2 + 10);
+      text(temp + "°C", width / 2 - 60, height / 2 - 250);
+      text(windspeed + "m/s", width / 2 + 100, height / 2 - 250);
       textFont(font);
-      textSize(16);
-      text("Temperature", width / 2 + 80, height / 2 + 35);
-      text("Windspeed", width / 2 + 240, height / 2 + 35);
+      textSize(12);
+      text("Temperature", width / 2 - 60, height / 2 - 230);
+      text("Windspeed", width / 2 + 100, height / 2 - 230);
 
       // image(jack, width / 2, height / 2 + 30, 177, 403);
       textAlign(LEFT);
       textFont(fontB);
-      textSize(14);
-      text("NOTE", width / 2 + 35, height / 2 + 125);
+      textSize(16);
+      text("Expectation", width / 2 - 118, height / 2 + 220);
       textFont(font);
       textSize(16);
       text("Today, " + desc + " is expected, with a humidity of " + humidity + ". " + note,
-        width / 2 + 165, height / 2 + 220, 260, 160);
+        width / 2 + 5, height / 2 + 315, 245, 160);
 
       // textFont(fontB);
       // textSize(20);
