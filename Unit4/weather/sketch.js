@@ -201,14 +201,14 @@ function draw() {
       noStroke();
       //Location
       textAlign(LEFT);
-      image(loct, width / 2 - 135, height / 2 - 300, 432 / 18, 650 / 18);
+      image(loct, width / 2 - 135, height / 2 - 295, 432 / 18, 650 / 18);
       fill('Black');
       textFont(font);
       textSize(12);
-      text("You are in", width / 2 - 110, height / 2 - 308);
+      text("You are in", width / 2 - 110, height / 2 - 303);
       textFont(fontB);
       textSize(24);
-      text(weather.name, width / 2 - 110, height / 2 - 285);
+      text(weather.name, width / 2 - 110, height / 2 - 280);
 
       //Temp and Wind
       image(tempt, width / 2 - 118, height / 2 - 225, 168 / 6, 232 / 6);
@@ -231,7 +231,7 @@ function draw() {
       text("Expectation", width / 2 - 118, height / 2 + 220);
       textFont(font);
       textSize(12);
-      text("Today, " + desc + " is expected, with a humidity of " + humidity + ". " + note,
+      text("Today, " + desc + " is expected, with a humidity of " + humidity + "%. " + note,
         width / 2 + 5, height / 2 + 313, 245, 160);
 
       // textFont(fontB);
