@@ -8,12 +8,9 @@ var windspeed = 0;
 let humidity = 0;
 let temp = 0;
 let tempc = 0;
-let bg;
 let font;
 let fontB;
 let loct;
-let cloud;
-let jack;
 let freeze;
 let cold;
 let normal;
@@ -21,7 +18,6 @@ let warm;
 let hot;
 let wind;
 let tempt;
-let drop;
 let dots = [];
 let maxDots = 500;
 let lat;
@@ -91,16 +87,12 @@ function setup() {
   textAlign(LEFT);
   imageMode(CENTER);
   rectMode(CENTER);
-  bg = loadImage('asset/bg.jpg');
   font = loadFont('asset/GilroyR.otf')
   fontB = loadFont('asset/GilroySB.otf')
   loct = loadImage('asset/loct.png');
-  cloud = loadImage('asset/cloud.png');
-  jack = loadImage('asset/jack.png');
   tempt = loadImage('asset/temp.png');
   freeze = loadImage('asset/freeze.png');
   wind = loadImage('asset/wind.png');
-  drop = loadImage('asset/drop.png');
 
   for (let i = 0; i <= maxDots; i++) {
     dots.push(new Dot());
