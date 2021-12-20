@@ -174,25 +174,25 @@ function draw() {
       // rect(width / 2 + 160, height / 2 - 200, 300, 100, 20);
 
       stroke(255, 143, 143);
-      drawingContext.shadowOffsetX = 0;
-      drawingContext.shadowOffsetY = 0;
-      drawingContext.shadowBlur = 20;
-      drawingContext.shadowColor = color(196, 196, 196);
+      // drawingContext.shadowOffsetX = 0;
+      // drawingContext.shadowOffsetY = 0;
+      // drawingContext.shadowBlur = 20;
+      // drawingContext.shadowColor = color(196, 196, 196);
       fill('white');
       rect(width / 2 - 80, height / 2 - 225, 140, 70, 20);
 
       stroke(143, 219, 255);
-      drawingContext.shadowOffsetX = 0;
-      drawingContext.shadowOffsetY = 0;
-      drawingContext.shadowBlur = 20;
-      drawingContext.shadowColor = color(196, 196, 196);
+      // drawingContext.shadowOffsetX = 0;
+      // drawingContext.shadowOffsetY = 0;
+      // drawingContext.shadowBlur = 20;
+      // drawingContext.shadowColor = color(196, 196, 196);
       fill('white');
       rect(width / 2 + 80, height / 2 - 225, 140, 70, 20);
 
-      drawingContext.shadowOffsetX = 0;
-      drawingContext.shadowOffsetY = 0;
-      drawingContext.shadowBlur = 20;
-      drawingContext.shadowColor = color(196, 196, 196);
+      // drawingContext.shadowOffsetX = 0;
+      // drawingContext.shadowOffsetY = 0;
+      // drawingContext.shadowBlur = 20;
+      // drawingContext.shadowColor = color(196, 196, 196);
       fill('white');
       rect(width / 2, height / 2 + 200 , 300, 200, 20);
 
