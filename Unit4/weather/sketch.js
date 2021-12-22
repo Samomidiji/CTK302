@@ -161,9 +161,9 @@ if (windspeed == 0){
     index = 0;
   } else if (temp > 8 && temp <= 16) {
     index = 1;
-  } else if (temp > 16 && temp <= 24) {
+  } else if (temp > 16 && temp <= 22) {
     index = 2;
-  } else if (temp > 23 && temp <= 30) {
+  } else if (temp > 22 && temp <= 30) {
     index = 3;
   } else if (temp > 30) {
     index = 4;
