@@ -39,26 +39,37 @@ let whatToWear = [
   "It's pretty warm today, wear something light",
   "It's going to be hot today, put on some shorts and stay hydrated "
 ];
+
+let windDesc = [
+    "calm",
+    "light air",
+    "light breeze",
+    "gentle breeze",
+    "moderate breeze",
+    "fresh breeze",
+    "strong breeze",
+    "moderate gale",
+    "fresh gale",
+    "strong gale",
+    "whole gale",
+    "storm",
+    "hurricane"
+]
+
 //
 // let imageToWear = [freeze, cold, normal, warm, hot];
+let imageToWear = [];
 
 var locationData;
 
 function preload() {
   locationData = getCurrentPosition();
+  imageToWear[0] = loadImage('asset/freeze.png');
+  imageToWear[1] = loadImage('asset/cold.png');
+  imageToWear[2] = loadImage('asset/normal.png');
+  imageToWear[3] = loadImage('asset/warm.png');
+  imageToWear[4] = loadImage('asset/hot.png');
 }
-
-// function positionPing(position) {
-//   distance = calcGeoDistance(locationData.latitude, locationData.longitude, position.latitude, position.longitude, 'mi');
-//   let lat = locationData.latitude;
-//   let long = locationData.longitude;
-//   let latPos = position.latitude;
-//   let longPos = position.longitude;
-//
-//   print(lat);
-//   print(long);
-//
-// }
 
 
 function setup() {
@@ -91,7 +102,8 @@ function setup() {
   fontB = loadFont('asset/GilroySB.otf')
   loct = loadImage('asset/loct.png');
   tempt = loadImage('asset/temp.png');
-  freeze = loadImage('asset/freeze.png');
+
+
   wind = loadImage('asset/wind.png');
 
   for (let i = 0; i <= maxDots; i++) {
@@ -114,21 +126,52 @@ function gotData(data) {
   // index = (temp / columns).toFixed(0);
   // print(index);
 
+if (windspeed == 0){
+  windex = 0;
+} else if (windspeed > 0 && windspeed <= 1) {
+  windex = 1;
+} else if (windspeed > 1 && windspeed <= 3) {
+  windex = 2;
+} else if (windspeed > 3 && windspeed <= 5) {
+  windex = 3;
+} else if (windspeed > 5 && windspeed <= 8) {
+  windex = 4;
+} else if (windspeed > 8 && windspeed <= 10) {
+  windex = 5;
+} else if (windspeed > 10 && windspeed <= 13) {
+  windex = 6;
+} else if (windspeed > 13 && windspeed <= 16) {
+  windex = 7;
+} else if (windspeed > 16 && windspeed <= 20) {
+  windex = 8;
+} else if (windspeed > 20 && windspeed <= 23) {
+  windex = 9;
+} else if (windspeed > 23 && windspeed <= 27) {
+  windex = 10;
+} else if (windspeed > 27 && windspeed <= 32) {
+  windex = 11;
+} else if (windspeed > 32) {
+  windex = 12;
+}
 
-  if (temp >= -10 && temp <= 10){
+
+
+
+  if (temp <= 8){
     index = 0;
-  } else if (temp > 10 && temp <= 18) {
+  } else if (temp > 8 && temp <= 16) {
     index = 1;
-  } else if (temp > 18 && temp <= 25) {
+  } else if (temp > 16 && temp <= 24) {
     index = 2;
-  } else if (temp > 25 && temp <= 32) {
+  } else if (temp > 23 && temp <= 30) {
     index = 3;
-  } else if (temp > 32) {
+  } else if (temp > 30) {
     index = 4;
   }
 
 
 print(whatToWear[index]);
+print(imageToWear[index]);
 }
 
 
@@ -144,19 +187,14 @@ function draw() {
       break;
 
     case 1:
-      //background('blue');
-      // for (let i = 0; i < dots.length; i++) {
-      //   dots[i].display();
-      //   dots[i].move();
-      // }
 
       // Description goes here and takes in index
-      windDes = "windy";
+      windDes = windDesc[windex];
       tempDes = whatToWear[index];
-      note = tempDes + " and " + windDes + "."
+      note = tempDes + " with " + windDes + "."
 
       // what to wear goes here and takes in index
-      dress = freeze;
+      dress = imageToWear[index];
 
 
 
