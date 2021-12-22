@@ -34,10 +34,10 @@ let columns = 0; // numbers between each length of temperature
 
 let whatToWear = [
   "Put on a jacket as shown. It would be very cold",
-  "The weather seems to be slightly cold, a sweater would be fine today",
-  "Today seems like a great day, dress up casual",
-  "It's pretty warm today, wear something light",
-  "It's going to be hot today, put on some shorts and stay hydrated "
+  "The weather seems to be slightly cold, a sweater would be fine",
+  "It seems like a great day, dress up casual",
+  "It'll be pretty warm, wear something light",
+  "It's going to be hot, put on some shorts and stay hydrated "
 ];
 
 let windDesc = [
@@ -191,7 +191,7 @@ function draw() {
       // Description goes here and takes in index
       windDes = windDesc[windex];
       tempDes = whatToWear[index];
-      note = tempDes + " with " + windDes + "."
+      note = tempDes + "."
 
       // what to wear goes here and takes in index
       dress = imageToWear[index];
@@ -250,7 +250,7 @@ function draw() {
       text("Expectation", width / 2 - 118, height / 2 + 225);
       textFont(font);
       textSize(12);
-      text("Today, " + desc + " is expected, with a humidity of " + humidity + "%. " + note,
+      text("Today, " + desc + " is expected, with " + windDes + " and humidity of " + humidity + "%. " + note,
         width / 2 + 5, height / 2 + 318, 245, 160);
 
       // textFont(fontB);
