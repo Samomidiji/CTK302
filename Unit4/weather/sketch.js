@@ -64,6 +64,7 @@ var locationData;
 
 function preload() {
   locationData = getCurrentPosition();
+  
   imageToWear[0] = loadImage('asset/freeze.png');
   imageToWear[1] = loadImage('asset/cold.png');
   imageToWear[2] = loadImage('asset/normal.png');
